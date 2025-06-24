@@ -55,9 +55,9 @@ const SignUpForm = () => {
             setIsVerifying(true);
         } catch (error: unknown) {
             console.log(JSON.stringify(error, null, 2));
-		if (error instanceof Error && "errors" in error && Array.isArray((error as any).errors)) {
+		if (error instanceof Error && "errors" in error && Array.isArray((error as unknown).errors)) {
 		
-            switch ((error as any).errors[0]?.code) {
+            switch ((error as unknown).errors[0]?.code) {
                 case "form_identifier_exists":
                     toast.error("This email is already registered. Please sign in.");
                     break;
