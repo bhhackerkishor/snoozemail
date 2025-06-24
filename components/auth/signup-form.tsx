@@ -11,6 +11,10 @@ import { toast } from "sonner";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "../ui/input-otp";
 import { Label } from "../ui/label";
 
+type ClerkError = Error & {
+  errors?: { code?: string; message?: string }[];
+  
+};
 const SignUpForm = () => {
 
     const router = useRouter();
@@ -55,9 +59,15 @@ const SignUpForm = () => {
             setIsVerifying(true);
         } catch (error: unknown) {
             console.log(JSON.stringify(error, null, 2));
-		if (error instanceof Error && "errors" in error && Array.isArray((error as unknown).errors)) {
-		
-            switch ((error as unknown).errors[0]?.code) {
+		if (
+			  typeof error === "object" &&
+			  error !== null &&
+			  "errors" in error &&
+			  Array.isArray((error as ClerkError).errors)
+			) {
+			  const firstError = (error as ClerkError).errors?.[0];
+
+			  switch (firstError?.code) {
                 case "form_identifier_exists":
                     toast.error("This email is already registered. Please sign in.");
                     break;
