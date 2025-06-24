@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 // app/(public)/page.tsx or app/layout.tsx
-export const metadata = {
+export const metadata: Metadata = {
   title: "SnoozeMail – Never Miss an Email Again",
   description: "SnoozeMail lets you schedule reminders for important emails. Stay on top of your inbox, always.",
   keywords: ["email reminders", "email snooze", "SnoozeMail", "email productivity", "schedule emails"],
