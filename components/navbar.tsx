@@ -24,7 +24,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0 ml-13">
-            <Link href="#" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2">
               
               <span className="text-xl font-bold text-sky-700 dark:text-sky-300">
                 SnoozeMail
@@ -64,8 +64,10 @@ export default function Navbar() {
                 <>
                   <UserButton afterSignOutUrl="/" />
                   <Button asChild variant="ghost" className="text-gray-700 dark:text-gray-300">
-                    <Link href="/dashboard">Dashboard</Link>
-                  </Button>
+              <Link href={isHome ? "/dashboard" : "/"}>
+                    {isHome ? "Dashboard" : "Home"}
+                  </Link>
+            </Button>
                 </>
               ) : (
                 <>
@@ -90,11 +92,27 @@ export default function Navbar() {
 
           {/* Mobile Navigation (Only Home and Theme Toggle) */}
           <div className="md:hidden flex items-center space-x-4">
-            <Button asChild variant="ghost" className="text-gray-700 dark:text-gray-300">
+            {!isLoaded ? (
+                <div className="h-8 w-20 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+              ) : user ? (
+                <>
+                  <UserButton afterSignOutUrl="/" />
+                  <Button asChild variant="ghost" className="text-gray-700 dark:text-gray-300">
               <Link href={isHome ? "/dashboard" : "/"}>
                     {isHome ? "Dashboard" : "Home"}
                   </Link>
             </Button>
+                </>
+              ) : (
+                <>
+                  <Button asChild variant="ghost" className="text-gray-700 dark:text-gray-300">
+                    <Link href="/login">Sign In</Link>
+                  </Button>
+                  <Button asChild className="bg-sky-600 hover:bg-sky-700 text-white">
+                    <Link href="/signup">Get Started</Link>
+                  </Button>
+                </>
+              )}
             
             <button
               onClick={toggleTheme}
