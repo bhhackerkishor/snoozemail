@@ -1,0 +1,91 @@
+🏠 /dashboard – Dashboard
+Show:
+
+Welcome message with user name
+
+Total reminders created
+
+Active reminders
+
+Snoozed emails count
+
+Plan usage (e.g., 2 of 100 reminders used)
+
+Quick action buttons (Create Reminder, Upgrade Plan)
+
+🔔 /reminders – Reminders
+Show:
+
+List of all scheduled reminders (table or cards)
+
+Reminder time, subject, email address (if applicable)
+
+Status (pending/sent)
+
+Edit/Delete options
+
+Filter by date, status, type
+
+⏰ /create – Create Reminder
+Show:
+
+Form to create a reminder manually:
+
+Title
+
+Description/Note
+
+Reminder date & time
+
+Notification method (Email/Push)
+
+Submit button with success feedback
+
+Show remaining quota if limited by plan
+
+📩 /emails – Snoozed Emails
+Show:
+
+List of forwarded emails with reminders
+
+Original email subject & forwarded time
+
+Scheduled reminder time
+
+Status (pending/sent)
+
+Search and filter options
+
+💳 /subscription – Subscription
+Show:
+
+Current plan details (Free, Pro, Team)
+
+Usage summary (e.g., 3/100 reminders)
+
+Upgrade/downgrade plan buttons
+
+Payment history
+
+Billing information
+
+🙍‍♂️ /profile – Profile
+Show:
+
+User profile info from Clerk (Name, Email)
+
+Editable fields if allowed (name, profile picture)
+
+Change password / Email preferences
+
+⚙️ /settings – Settings
+Show:
+
+Notification preferences
+
+Reminder behavior (e.g., time zone, default timing)
+
+Account settings (delete account, API keys if any)
+
+Theme settings (dark/light mode toggle)
+
