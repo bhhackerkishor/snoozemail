@@ -18,7 +18,8 @@ interface DbUser {
   plan: string;
   usedRemindersThisMonth: number;
   resetAt?: string;
-  purchaseHistory?: Array<any>; // or Array<Purchase> if you define it
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+purchaseHistory?: Array<any>;// or Array<Purchase> if you define it
 
 }
 
