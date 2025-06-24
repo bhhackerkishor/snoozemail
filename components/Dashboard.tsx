@@ -28,7 +28,7 @@ interface User {
 export default function Dashboard({ user, initialReminders }: { user: User, initialReminders: Reminder[] }) {
   const { name, usedRemindersThisMonth, plan, email } = user;
   const reminderLimit = plan === "free" ? 10 : plan === "pro" ? 100 : Infinity;
-  const [reminders, setReminders] = useState<Reminder[]>(initialReminders);
+  const [reminders] = useState<Reminder[]>(initialReminders);
 
   const progress = reminderLimit === Infinity
     ? 100
